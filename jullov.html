@@ -1,0 +1,115 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jullovsnedräknaren</title>
+<style>
+p {
+  text-align: center;
+  font-size: 10vw;
+  font-style: italic;
+  color: white;
+  margin-top: 0px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  position: fixed;
+  align-items: center;
+  justify-content: center;
+  text-shadow: 2px 1px red;
+}
+body {
+  background-image: url('https://cdn.pixabay.com/photo/2018/01/02/17/13/christmas-balls-3056638_960_720.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+#overlay {
+  position: fixed; /* Sit on top of the page content */
+  display: none; /* Hidden by default */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.0); /* Black background with opacity */
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  animation-name: flyg;
+  animation-duration: 7s;
+  opacity: 0;
+}
+#overlay2 {
+  position: fixed; /* Sit on top of the page content */
+  display: none; /* Hidden by default */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0vh;
+  left: 25vw;
+  right: 25vw;
+  bottom: 25vh;
+  background-color: rgba(0,0,0,0.0); /* Black background with opacity */
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+}
+@keyframes flyg {
+ from {
+  top: 0vw;
+  left: 0vh;
+  opacity: 1;
+ }
+ 99% {
+  top: 100vh;
+  left: 100vw;
+  opacity: 1;
+ }
+ to {
+  opacity: 0;
+ }
+}
+</style>
+</head>
+<body>
+
+<p id="demo">Snart är det jullov!</p>
+<div id="overlay"><img src="http://birgitmummu.vikki.fi/JULSIDORNA/Animation/TomtensSlade.gif"></img></div>
+<div id="overlay2"><img src="http://www.elisanet.fi/bertta.bergroth/Joulu/Kuvitus/Sekalaiset/Toivotus.gif" width=832 height=404></img></div>
+<script>
+// Set the date we're counting down to
+var countDownDate = new Date("Dec 17, 2019 11:00:00").getTime();
+// Update the count down every 1 second
+var x = setInterval(function() {
+  // Get todays date and time
+  var now = new Date().getTime();
+    
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+    
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+  // Output the result in an element with id="demo"
+  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+    document.title = document.getElementById("demo").innerHTML;
+    
+  // If the count down is over, write some text 
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "Nu är det jullov!";
+    document.title = "Nu är det jullov!";
+    document.getElementById("overlay").style.display = "block";
+    document.getElementById("overlay2").style.display = "block";
+    if(new Date().getDate() == 24 && new Date().getMonth() == 11) {
+     document.getElementById("demo").innerHTML = "God jul!";
+    }
+  }
+}, 1000);
+</script>
+
+</body>
+</html>
