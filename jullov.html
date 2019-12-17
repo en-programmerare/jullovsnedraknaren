@@ -74,7 +74,7 @@ body {
 
 <p id="demo">Snart är det jullov!</p>
 <div id="overlay"><img src="http://birgitmummu.vikki.fi/JULSIDORNA/Animation/TomtensSlade.gif"></img></div>
-<div id="overlay2"><img src="http://www.elisanet.fi/bertta.bergroth/Joulu/Kuvitus/Sekalaiset/Toivotus.gif" width=832 height=404></img></div>
+<!--<div id="overlay2"><img src="http://www.elisanet.fi/bertta.bergroth/Joulu/Kuvitus/Sekalaiset/Toivotus.gif" width=832 height=404></img></div>-->
 <script>
 // Set the date we're counting down to
 var countDownDate = new Date("Dec 17, 2019 10:30:00").getTime();
@@ -103,7 +103,7 @@ var x = setInterval(function() {
     document.getElementById("demo").innerHTML = "Nu är det jullov!";
     document.title = "Nu är det jullov!";
     document.getElementById("overlay").style.display = "block";
-    document.getElementById("overlay2").style.display = "block";
+    //document.getElementById("overlay2").style.display = "block";
     if(new Date().getDate() == 24 && new Date().getMonth() == 11) {
      document.getElementById("demo").innerHTML = "God jul!";
     }
